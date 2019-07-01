@@ -9,19 +9,40 @@
 // Set a secret word!
 
 var word = 'ANSWER'; // ALL CAPS
+var guessArray = []
+for (var i = 0; i < word.length; i ++)
+    guessArray.push('-')
 
 // Ask player if they would like to guess a letter or guess the
 // solution.
 
-var isGuessingLetter = true; // set to false to guess solution
+var isGuessingLetter = false; // set to false to guess solution
 
 // If they are guessing a letter, set the letter that they are
 // guessing. If they are guessing the word, then set the word
 // as their guess.
 
-var guess = 'A'; // UPPERCASE
+var guess = 'Answer'; // UPPERCASE
+
 
 // SCRIPT ////////////////////////////////////////////////////////////
+
+if (isGuessingLetter === true) {
+    for(i = 0, j = word.length; i < j; i++) {
+        if (guess.toUpperCase() === word[i]) {
+            guessArray[i] = guess.toUpperCase();
+            console.log(guessArray);
+            break;
+        }
+    } if (guess.toUpperCase() !== word[i]) {
+        console.log('Sorry, no ' + guess.toUpperCase() + '!');
+    }
+} else if (isGuessingLetter === false && guess.toUpperCase() === word) {
+    console.log('Congratulations! You won Wheel of Fortune!')
+} else if (isGuessingLetter === false && guess.toUpperCase() !== word) {
+    console.log('Nope, keep trying!')
+}
+
 
 // If guessing a letter...
 
